@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HiRoomi</string>
+
+    <string name="parse_app_id">v4BUzaOgYMzFI0pzN5vSe2bZ7cgevqV5iz0yzzeP</string>
+    <string name="parse_client_key">iTs3GuMdcG62q5jwvoJESHxkKhP5SZrrJMzsSeIp</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
