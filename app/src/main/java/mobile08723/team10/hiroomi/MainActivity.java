@@ -50,9 +50,19 @@ public class MainActivity extends ActionBarActivity
 //        fragmentManager.beginTransaction()
 //                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
 //                .commit();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, new ProfileFragment())
-                .commit();
+        switch (position) {
+            case 1:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, new ProfileFragment())
+                        .commit();
+                break;
+            case 2:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, new UploadFragment())
+                        .commit();
+                break;
+        }
+
 
     }
 

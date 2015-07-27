@@ -36,5 +36,10 @@
         style="@style/ParseLoginUI.Button"
         android:layout_marginTop="@dimen/com_parse_ui_large_vertical_spacing"
         android:text="@string/profile_logout_button_label"/>
+    <Button
+        android:id="@+id/choose_profile"
+        style="@style/ParseLoginUI.Button"
+        android:layout_marginTop="@dimen/com_parse_ui_large_vertical_spacing"
+        android:text="@string/choose_profile_label"/>
 
 </LinearLayout>
