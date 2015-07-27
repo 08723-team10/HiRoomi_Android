@@ -2,11 +2,25 @@
 <items version="2" >
 
     <item
+        jar="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/pre-dexed/debug/classes-e7abc573d7029c9e5a2cd289a4378448076680fc.jar" />
+    </item>
+    <item
         jar="/Users/jiayi/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
         jumboMode="false"
         revision="21.1.1"
         sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
         <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-d38eb4d1e567712970547691fdbadb5b6937d389.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/HiRoomi/ParseLoginUI/unspecified/libs/ParseFacebookUtilsV4-1.9.4.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="d0490b697e2ff12e81b214d17f166534dfd3bced">
+        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.9.4-09a845133a0fa5cc6f770ea064874411184cfb07.jar" />
     </item>
     <item
         jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
@@ -16,46 +30,11 @@
         <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-e9229085e027d57f9a4a0b7b390f432a0bd1b88a.jar" />
     </item>
     <item
-        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/HiRoomi/ParseLoginUI/unspecified/libs/ParseFacebookUtilsV4-1.9.4.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="d0490b697e2ff12e81b214d17f166534dfd3bced">
-        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.9.4-09a845133a0fa5cc6f770ea064874411184cfb07.jar" />
-    </item>
-    <item
         jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/HiRoomi/ParseLoginUI/unspecified/libs/Parse-1.9.4.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
         <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/Parse-1.9.4-ec69396aa7391f9ac7dd49a2cf54a1d15f26a46c.jar" />
-    </item>
-    <item
-        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-abf1000c673285a0e7b764d315be8de60104e3bf.jar" />
-    </item>
-    <item
-        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/HiRoomi/ParseLoginUI/unspecified/libs/Parse-1.9.4.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
-        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/Parse-1.9.4-ec69396aa7391f9ac7dd49a2cf54a1d15f26a46c.jar" />
-    </item>
-    <item
-        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-fa7db05ff6ae506f16487447377cc01100ba5df4.jar" />
-    </item>
-    <item
-        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/HiRoomi/ParseLoginUI/unspecified/libs/ParseFacebookUtilsV4-1.9.4.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d0490b697e2ff12e81b214d17f166534dfd3bced">
-        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.9.4-09a845133a0fa5cc6f770ea064874411184cfb07.jar" />
     </item>
     <item
         jar="/Users/jiayi/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
@@ -65,25 +44,11 @@
         <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-d38eb4d1e567712970547691fdbadb5b6937d389.jar" />
     </item>
     <item
-        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.1/classes.jar"
+        jar="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="f7188fc9a524a8f965b5aeab74879036f0431080">
-        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-4b61413a51686ceb2717e56ccca36dfca6b303bc.jar" />
-    </item>
-    <item
-        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.1/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f7188fc9a524a8f965b5aeab74879036f0431080">
-        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-4b61413a51686ceb2717e56ccca36dfca6b303bc.jar" />
-    </item>
-    <item
-        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-fa7db05ff6ae506f16487447377cc01100ba5df4.jar" />
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/pre-dexed/debug/classes-187446018aa9e85b6fca119ed128ca411ce8e3f8.jar" />
     </item>
     <item
         jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/classes.jar"
@@ -100,11 +65,81 @@
         <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-9b6f750be3d711e26ed861c9d781a8a463414fa2.jar" />
     </item>
     <item
+        jar="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/exploded-aar/HiRoomi_Android/ParseLoginUI/unspecified/libs/Parse-1.9.4.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
+        <dex dex="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/pre-dexed/debug/Parse-1.9.4-a947601f382895aed2a56eb73a6cda4daea81190.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/HiRoomi/ParseLoginUI/unspecified/libs/Parse-1.9.4.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="56c22930b5d4f77015b6a40c7f14103d3e101001">
+        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/Parse-1.9.4-ec69396aa7391f9ac7dd49a2cf54a1d15f26a46c.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-abf1000c673285a0e7b764d315be8de60104e3bf.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/HiRoomi/ParseLoginUI/unspecified/libs/ParseFacebookUtilsV4-1.9.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d0490b697e2ff12e81b214d17f166534dfd3bced">
+        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.9.4-09a845133a0fa5cc6f770ea064874411184cfb07.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-fa7db05ff6ae506f16487447377cc01100ba5df4.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="f7188fc9a524a8f965b5aeab74879036f0431080">
+        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-4b61413a51686ceb2717e56ccca36dfca6b303bc.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-fa7db05ff6ae506f16487447377cc01100ba5df4.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.1/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f7188fc9a524a8f965b5aeab74879036f0431080">
+        <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-4b61413a51686ceb2717e56ccca36dfca6b303bc.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/exploded-aar/HiRoomi_Android/ParseLoginUI/unspecified/libs/ParseFacebookUtilsV4-1.9.4.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="d0490b697e2ff12e81b214d17f166534dfd3bced">
+        <dex dex="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.9.4-45347fd35e91953b7478d3f2884dc91b77804d04.jar" />
+    </item>
+    <item
         jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
         <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/classes-abf1000c673285a0e7b764d315be8de60104e3bf.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/exploded-aar/HiRoomi_Android/ParseLoginUI/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="81fd29218cc7b1d6f6d978473860bcfb203a747c">
+        <dex dex="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/pre-dexed/debug/classes-ca7768e92157604cd4ad630cfaa0d8ef0b781627.jar" />
     </item>
     <item
         jar="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/exploded-aar/HiRoomi/ParseLoginUI/unspecified/classes.jar"
@@ -126,6 +161,20 @@
         revision="21.1.1"
         sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
         <dex dex="/Users/jiayi/Downloads/HiRoomi/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-c5560112ba37c8c55ed91bfb54b3198dfe17b5d6.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-bfeddefab7194697cf9005c6b0f7be63bfcb4edd.jar" />
+    </item>
+    <item
+        jar="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="f7188fc9a524a8f965b5aeab74879036f0431080">
+        <dex dex="/Users/jiayi/git/HiRoomi_Android/app/build/intermediates/pre-dexed/debug/classes-6d5d0c94c6c6ad19cd12b9ac7a509d3334d7006c.jar" />
     </item>
 
 </items>
