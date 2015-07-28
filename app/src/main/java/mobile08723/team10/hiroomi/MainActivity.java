@@ -66,6 +66,11 @@ public class MainActivity extends ActionBarActivity
                         .replace(R.id.container, new ItemFragment())
                         .commit();
                 break;
+            case 3:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, new MapFragment())
+                        .commit();
+                break;
         }
 
 
@@ -81,6 +86,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section3);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section4);
                 break;
         }
     }
