@@ -7,6 +7,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,12 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.List;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -50,6 +57,8 @@ public class MapFragment extends Fragment implements View.OnClickListener, Locat
         //Button b=(Button)rootView.findViewById(R.id.search);
         //b.setOnClickListener(this);
         setUpMapIfNeeded();
+
+
         return rootView;
     }
 
@@ -134,7 +143,20 @@ public class MapFragment extends Fragment implements View.OnClickListener, Locat
 //                mMap.addMarker(new MarkerOptions().position(new LatLng(stopItem.latitude, stopItem.longitude)).title(stopItem.getRoutes()));
 //            }}
 
-
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("PostInfo");
+        //query.whereEqualTo("playerName", "Dan Stemkoski");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> apList, ParseException e) {
+                if (e == null) {
+                    Log.d("HiRoomi", "Retrieved " + apList.size() + " Infos");
+                    for (ParseObject ap : apList){
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(ap.getDouble("Longitude"), ap.getDouble("Latitude"))).title("Marker"));
+                    }
+                } else {
+                    Log.d("HiRoomi", "Error: " + e.getMessage());
+                }
+            }
+        });
 
     }
     @Override
