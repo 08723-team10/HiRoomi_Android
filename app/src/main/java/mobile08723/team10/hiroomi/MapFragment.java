@@ -18,9 +18,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseException;
 
 import java.util.List;
 
@@ -113,6 +113,23 @@ public class MapFragment extends Fragment implements View.OnClickListener, Locat
             onLocationChanged(location);
         }
         locationManager.requestLocationUpdates(provider, 20000, 0, this);
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("PostInfo");
+        //query.whereEqualTo("playerName", "Dan Stemkoski");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> apList, ParseException e) {
+                if (e == null) {
+                    Log.d("HiRoomi", "Retrieved " + apList.size() + " Infos");
+                    for (ParseObject ap : apList) {
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(ap.getDouble("Longitude"), ap.getDouble("Latitude"))).title(ap.getString("Title")).snippet(ap.getString("description")));
+                    }
+
+                } else {
+                    Log.d("HiRoomi", "Error: " + e.getMessage());
+                }
+            }
+        });
+
     }
 
     @Override
@@ -143,20 +160,6 @@ public class MapFragment extends Fragment implements View.OnClickListener, Locat
 //                mMap.addMarker(new MarkerOptions().position(new LatLng(stopItem.latitude, stopItem.longitude)).title(stopItem.getRoutes()));
 //            }}
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("PostInfo");
-        //query.whereEqualTo("playerName", "Dan Stemkoski");
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> apList, ParseException e) {
-                if (e == null) {
-                    Log.d("HiRoomi", "Retrieved " + apList.size() + " Infos");
-                    for (ParseObject ap : apList){
-                        mMap.addMarker(new MarkerOptions().position(new LatLng(ap.getDouble("Longitude"), ap.getDouble("Latitude"))).title("Marker"));
-                    }
-                } else {
-                    Log.d("HiRoomi", "Error: " + e.getMessage());
-                }
-            }
-        });
 
     }
     @Override

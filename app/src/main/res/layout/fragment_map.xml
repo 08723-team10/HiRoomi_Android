@@ -13,21 +13,21 @@
     <!--tools:context=".MainActivity">-->
 
 
-    <EditText
-        android:id="@+id/from"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:hint="Enter Address"
-        android:text="Carnegie Mellon University" />
+    <!--<EditText-->
+        <!--android:id="@+id/from"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:hint="Enter Address"-->
+        <!--android:text="Carnegie Mellon University" />-->
 
-    <Button
-        android:id="@+id/search"
-        android:text="Search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="searchRoute"
-        android:clickable="true" />
+    <!--<Button-->
+        <!--android:id="@+id/search"-->
+        <!--android:text="Search"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="searchRoute"-->
+        <!--android:clickable="true" />-->
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"

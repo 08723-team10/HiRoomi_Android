@@ -47,8 +47,8 @@ public class CustomAdapter extends ParseQueryAdapter<ParseObject> {
 		titleTextView.setText(object.getString("Title"));
 
 		// Add a reminder of how long this item has been outstanding
-		TextView timestampView = (TextView) v.findViewById(R.id.timestamp);
-		timestampView.setText(object.getCreatedAt().toString());
+//		TextView timestampView = (TextView) v.findViewById(R.id.timestamp);
+//		timestampView.setText(object.getCreatedAt().toString());
 		return v;
 	}
 

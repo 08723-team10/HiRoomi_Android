@@ -111,7 +111,7 @@ public class UploadFragment extends Fragment {
                 Log.d("HiRoomi", "Clicked");
                 Log.d("HiRoomi", address.getText().toString());
                 ParseObject postInfo = new ParseObject("PostInfo");
-//                postInfo.put("UserName", "quriola");
+                //postInfo.put("UserName", "poi");
                 postInfo.put("UserName", user.getUsername());
                 postInfo.put("Address", address.getText().toString());
                 postInfo.put("FromYear", FromYear);
@@ -125,9 +125,9 @@ public class UploadFragment extends Fragment {
                 postInfo.put("description", description.getText().toString());
                 postInfo.put("NeedTenant", Integer.parseInt(tenants.getText().toString()));
                 postInfo.put("Price", Integer.parseInt(price.getText().toString()));
-                if (file!=null){
-                    postInfo.put("Image", file);
-                }
+
+                postInfo.put("Image", file);
+
 
                 postInfo.saveInBackground();
                 Toast.makeText(UploadFragment.this.getActivity(), "Rent Info Uploaded",
@@ -280,7 +280,7 @@ public class UploadFragment extends Fragment {
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            startdate.setText(String.format("%d/%d/%d", day, month+1, year));
+            startdate.setText(String.format("%d/%d/%d", month+1, day,  year));
             FromYear = year;
             FromMonth = month+1;
             FromDay = day;
@@ -304,7 +304,7 @@ public class UploadFragment extends Fragment {
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            enddate.setText(String.format("%d/%d/%d", day, month+1, year));
+            enddate.setText(String.format("%d/%d/%d",  month+1, day,year));
             ToYear = year;
             ToMonth = month+1;
             ToDay = day;
