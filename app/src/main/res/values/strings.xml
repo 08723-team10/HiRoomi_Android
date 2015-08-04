@@ -23,4 +23,7 @@
     <string name="profile_logout_button_label">Log out</string>
     <string name="choose_profile_label">choose profile</string>
     <string name="upload_apartment_label">Upload</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

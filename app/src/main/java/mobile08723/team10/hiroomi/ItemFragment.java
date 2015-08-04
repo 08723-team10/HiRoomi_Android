@@ -1,6 +1,7 @@
 package mobile08723.team10.hiroomi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import mobile08723.team10.hiroomi.dummy.DummyContent;
+import com.parse.ParseObject;
 
 /**
  * A fragment representing a list of Items.
@@ -102,11 +103,20 @@ public class ItemFragment extends Fragment implements AbsListView.OnItemClickLis
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (null != mListener) {
-            // Notify the active callbacks interface (the activity, if the
-            // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
-        }
+//        if (null != mListener) {
+//            // Notify the active callbacks interface (the activity, if the
+//            // fragment is attached to one) that an item has been selected.
+//            //mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
+//            mListener.onFragmentInteraction(postInfoAdapter.getItem(position));
+//        }
+        Intent i=new Intent(getActivity(),DetailActivity.class);
+        ParseObject po = postInfoAdapter.getItem(position);
+        //ParseProxyObject ppo = new ParseProxyObject(po);
+        //i.putExtra("id", po);
+        i.putExtra("id", po.getObjectId());
+        i.putExtra("title", po.getString("Title"));
+        getActivity().startActivity(i);
+
     }
 
     /**
@@ -134,7 +144,7 @@ public class ItemFragment extends Fragment implements AbsListView.OnItemClickLis
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(String id);
+        public void onFragmentInteraction(ParseObject po);
     }
 
 }
