@@ -2,9 +2,20 @@ package mobile08723.team10.hiroomi;
 
 
 import android.app.DatePickerDialog;
-import android.app.DialogFragment;
 import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.ParcelFileDescriptor;
+import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,11 +24,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
 /**
@@ -25,7 +45,7 @@ import java.util.Calendar;
  */
 public class UploadFragment extends Fragment {
 
-
+    private Uri outputFileUri;
     EditText address;
     EditText title;
     EditText description;
@@ -46,8 +66,12 @@ public class UploadFragment extends Fragment {
 
     static int FromYear, FromMonth, FromDay, ToYear, ToMonth, ToDay;
 
+    private ImageView imageView;
+
     ParseUser user;
     String username;
+
+    ParseFile file;
     public UploadFragment() {
         // Required empty public constructor
     }
@@ -80,6 +104,7 @@ public class UploadFragment extends Fragment {
         startdate = (Button)rootView.findViewById(R.id.startdate);
         enddate = (Button)rootView.findViewById(R.id.enddate);
 
+        imageView = (ImageView) rootView.findViewById(R.id.imageView);
         rootView.findViewById(R.id.upload_apartment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +125,13 @@ public class UploadFragment extends Fragment {
                 postInfo.put("description", description.getText().toString());
                 postInfo.put("NeedTenant", Integer.parseInt(tenants.getText().toString()));
                 postInfo.put("Price", Integer.parseInt(price.getText().toString()));
+                if (file!=null){
+                    postInfo.put("Image", file);
+                }
+
                 postInfo.saveInBackground();
+                Toast.makeText(UploadFragment.this.getActivity(), "Rent Info Uploaded",
+                        Toast.LENGTH_SHORT).show();
 //                ParseObject postInfo = new ParseObject("PostInfo");
 //                postInfo.put("UserName", "quriola");
 //                postInfo.put("FromYear", 2015);
@@ -136,9 +167,102 @@ public class UploadFragment extends Fragment {
 
             }
         });
+        addPhotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Determine Uri of camera image to save.
+                final File root = new File(Environment.getExternalStorageDirectory() + File.separator + "MyDir" + File.separator);
+                root.mkdirs();
+                //final String fname = Utils.getUniqueImageFilename();
+                final String fname = "img_"+ System.currentTimeMillis() + ".jpg";
+                final File sdImageMainDirectory = new File(root, fname);
+                outputFileUri = Uri.fromFile(sdImageMainDirectory);
+
+                // Camera.
+                final List<Intent> cameraIntents = new ArrayList<Intent>();
+                final Intent captureIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                final PackageManager packageManager = UploadFragment.this.getActivity().getPackageManager();
+                final List<ResolveInfo> listCam = packageManager.queryIntentActivities(captureIntent, 0);
+                for(ResolveInfo res : listCam) {
+                    final String packageName = res.activityInfo.packageName;
+                    final Intent intent = new Intent(captureIntent);
+                    intent.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+                    intent.setPackage(packageName);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+                    cameraIntents.add(intent);
+                }
+
+                // Filesystem.
+                final Intent galleryIntent = new Intent();
+                galleryIntent.setType("image/*");
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+
+                // Chooser of filesystem options.
+                final Intent chooserIntent = Intent.createChooser(galleryIntent, "Select Source");
+
+                // Add the camera options.
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, cameraIntents.toArray(new Parcelable[cameraIntents.size()]));
+
+                startActivityForResult(chooserIntent, 0);
+
+            }
+        });
         return rootView ;
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == UploadFragment.this.getActivity().RESULT_OK) {
+            if (requestCode == 0) {
+                final boolean isCamera;
+                if (data == null) {
+                    isCamera = true;
+                } else {
+                    final String action = data.getAction();
+                    if (action == null) {
+                        isCamera = false;
+                    } else {
+                        isCamera = action.equals(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    }
+                }
 
+                Uri selectedImageUri;
+                if (isCamera) {
+                    selectedImageUri = outputFileUri;
+                } else {
+                    selectedImageUri = data == null ? null : data.getData();
+                }
+                // emailTextView.setText(selectedImageUri.toString());
+
+                //imageView.setImageBitmap(BitmapFactory.decodeFile(selectedImageUri.toString()));
+                try {
+                    imageView.setImageBitmap(getBitmapFromUri(selectedImageUri));
+                    Bitmap bitmap = getBitmapFromUri(selectedImageUri);
+                    // Convert it to byte
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    // Compress image to lower quality scale 1 - 100
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    byte[] image = stream.toByteArray();
+
+                    // Create the ParseFile
+                    file = new ParseFile("androidbegin.png", image);
+                    // Upload the image into Parse Cloud
+                    file.saveInBackground();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+    private Bitmap getBitmapFromUri(Uri uri) throws IOException {
+        ParcelFileDescriptor parcelFileDescriptor =
+                this.getActivity().getContentResolver().openFileDescriptor(uri, "r");
+        FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+        Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+        parcelFileDescriptor.close();
+        return image;
+    }
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
         // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
