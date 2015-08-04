@@ -6,10 +6,13 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -17,11 +20,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.ParseUser;
 
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +60,7 @@ public class ProfileFragment extends Fragment {
     private TextView nameTextView;
     private Button loginOrLogoutButton;
     private ParseUser currentUser;
+    private ImageView imageView;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -90,6 +97,7 @@ public class ProfileFragment extends Fragment {
         titleTextView = (TextView) rootView.findViewById(R.id.profile_title);
         emailTextView = (TextView) rootView.findViewById(R.id.profile_email);
         nameTextView = (TextView) rootView.findViewById(R.id.profile_name);
+        imageView = (ImageView) rootView.findViewById(R.id.imageView);
 
         rootView.findViewById(R.id.logout_button).setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -178,10 +186,25 @@ public class ProfileFragment extends Fragment {
                 } else {
                     selectedImageUri = data == null ? null : data.getData();
                 }
-                emailTextView.setText(selectedImageUri.toString());
+               // emailTextView.setText(selectedImageUri.toString());
+
+                //imageView.setImageBitmap(BitmapFactory.decodeFile(selectedImageUri.toString()));
+                try {
+                    imageView.setImageBitmap(getBitmapFromUri(selectedImageUri));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
+    }
+    private Bitmap getBitmapFromUri(Uri uri) throws IOException {
+        ParcelFileDescriptor parcelFileDescriptor =
+                this.getActivity().getContentResolver().openFileDescriptor(uri, "r");
+        FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+        Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+        parcelFileDescriptor.close();
+        return image;
     }
 
 //    // TODO: Rename method, update argument and hook method into UI event
